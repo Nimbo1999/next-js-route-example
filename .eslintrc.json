@@ -8,12 +8,28 @@
         "plugin:react/jsx-runtime", // comment this line if you are not using the new JSX transform from React 17
         "prettier"
     ],
+    "plugins": ["jsx-a11y", "react"],
     "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "script",
+        "ecmaVersion": 11,
+        "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
         }
+    },
+    "ecmaFeatures": {
+        "jsx": true,
+        "modules": true,
+        "spread": true,
+        "arrowFunctions": true,
+        "classes": true,
+        "defaultParams": true,
+        "generators": true,
+        "destructuring": true,
+        "impliedStrict": true,
+        "forOf": true,
+        "restParams": true,
+        "templateStrings": true,
+        "experimentalObjectRestSpread": true
     },
     "rules": {
         "constructor-super": 2,
@@ -106,6 +122,8 @@
                 "tabWidth": 4,
                 "ignoreRegExpLiterals": true,
                 "ignoreTrailingComments": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true,
                 "ignoreUrls": true
             }
         ],
@@ -143,13 +161,12 @@
         "no-useless-constructor": 2,
         "no-var": 2,
         "object-curly-newline": 2,
-        "object-curly-spacing": 2,
+        "object-curly-spacing": [2, "always"],
         "prefer-const": 2,
         "prefer-destructuring": 2,
         "prefer-object-has-own": 2,
         "prefer-object-spread": 2,
         "prefer-template": 2,
-        "quotes": 2,
         "require-await": 2,
         "rest-spread-spacing": 2,
         "semi": 2,
@@ -157,7 +174,16 @@
         "semi-style": 2,
         "space-in-parens": 2,
         "spaced-comment": 2,
-        "wrap-iife": 2
+        "wrap-iife": 2,
+        "react/prop-types": 0,
+        "jsx-a11y/anchor-is-valid": [
+            1,
+            {
+              "components": ["Link"],
+              "specialLink": ["hrefLeft", "hrefRight"],
+              "aspects": ["noHref", "invalidHref", "preferButton"]
+            }
+        ]
     },
     "env": {
         "browser": true,
