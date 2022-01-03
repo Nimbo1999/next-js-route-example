@@ -2,12 +2,12 @@ import { Fragment } from 'react';
 import { useRouter } from 'next/router';
 
 import EventList from '../../components/events/event-list';
-import { getAllEvents } from '../../dummy-data';
 import EventsSearch from '../../components/events/events-search';
 
-function AllEventsPage() {
+import EventsApi from '../../service/EventsApi';
+
+function AllEventsPage({ events }) {
     const router = useRouter();
-    const events = getAllEvents();
 
     function isFormValid(formValues) {
         const keys = ['month', 'year'];
@@ -31,6 +31,18 @@ function AllEventsPage() {
             <EventList items={events} />
         </Fragment>
     );
+}
+
+export async function getStaticProps() {
+    const api = new EventsApi();
+    const events = await api.fetchEvents();
+
+    return {
+        props: {
+            events,
+            revalidate: 600
+        }
+    };
 }
 
 export default AllEventsPage;
