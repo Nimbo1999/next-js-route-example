@@ -96,7 +96,6 @@
         "array-bracket-newline": 2,
         "block-scoped-var": 2,
         "camelcase": 2,
-        "class-methods-use-this": 2,
         "comma-spacing": 2,
         "eqeqeq": 2,
         "func-call-spacing": 2,

@@ -5,7 +5,7 @@ class Api {
     static _DELETE = 'DELETE';
 
     async get(url) {
-        const response = await fetch(url, { method: this._GET });
+        const response = await fetch(url, { method: Api._GET });
         const data = response.json();
         return data;
     }

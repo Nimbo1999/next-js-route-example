@@ -10,6 +10,18 @@ class EventsApi extends Api {
         const data = await this.get(url);
         return EventsAdapter.fetchEvents(data);
     }
+
+    async fetchEventsIds() {
+        const url = `${EventsApi.BASE_URL}/events.json?shallow=true`;
+        const data = await this.get(url);
+        return EventsAdapter.fetchEventsIds(data);
+    }
+
+    async fetchEventById(id) {
+        const url = `${EventsApi.BASE_URL}/events/${id}.json`;
+        const data = await this.get(url);
+        return data;
+    }
 }
 
 export default EventsApi;

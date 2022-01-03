@@ -21,6 +21,18 @@ class EventsAdapter {
     static toHomePage(data) {
         return data.filter(event => event.isFeatured);
     }
+
+    static fetchEventsIds(data) {
+        return Object.keys(data);
+    }
+
+    static toEventIdPage(ids) {
+        return ids.map(EventsAdapter.idToPath);
+    }
+
+    static idToPath(id) {
+        return { params: { eventId: id } };
+    }
 }
 
 export default EventsAdapter;
