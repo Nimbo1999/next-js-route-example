@@ -1,16 +1,18 @@
+const DefaultHumanReadableOptions = {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+};
+
 class DateUtils {
-    static locale = 'pt-BR';
+    static locale = 'en';
 
     static now() {
         return new Date();
     }
 
-    static toHumanReadableDate(date = DateUtils.now()) {
-        return new Date(date).toLocaleDateString(DateUtils.locale, {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric'
-        });
+    static toHumanReadableDate(date = DateUtils.now(), options = DefaultHumanReadableOptions) {
+        return new Date(date).toLocaleDateString(DateUtils.locale, options);
     }
 }
 
