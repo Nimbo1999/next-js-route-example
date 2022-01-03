@@ -27,11 +27,22 @@ class EventsAdapter {
     }
 
     static toEventIdPage(ids) {
-        return ids.map(EventsAdapter.idToPath);
+        return ids.map(EventsAdapter._idToPath);
     }
 
-    static idToPath(id) {
+    static _idToPath(id) {
         return { params: { eventId: id } };
+    }
+
+    static eventsByProvidedDate(events, { year, month }) {
+        return events.filter(event =>
+            EventsAdapter._eventItsInProvidedDateFilter(event, year, month)
+        );
+    }
+
+    static _eventItsInProvidedDateFilter(event, year, month) {
+        const eventDate = new Date(event.date);
+        return eventDate.getFullYear() === year && eventDate.getMonth() === month - 1;
     }
 }
 
