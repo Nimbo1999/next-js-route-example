@@ -18,7 +18,8 @@ export async function getStaticProps() {
     return {
         props: {
             featuredEvents: EventsAdapter.toHomePage(data)
-        }
+        },
+        revalidate: 1800
     };
 }
 
